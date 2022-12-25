@@ -1,0 +1,1004 @@
+{
+	"info": {
+		"_postman_id": "efa1b24c-0ede-4c52-b4ef-e2cd0b5b4c0e",
+		"name": "Auction Auction API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11465138"
+	},
+	"item": [
+		{
+			"name": "users",
+			"item": [
+				{
+					"name": "me",
+					"item": [
+						{
+							"name": "/users/me",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/me",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"me"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/users/me",
+							"request": {
+								"method": "PATCH",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"phone\": \"\",\r\n    \"id_country\": \"\",\r\n    \"id_province\": \"\",\r\n    \"postcode\": \"\",\r\n    \"city\": \"\",\r\n    \"street\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users/me",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"me"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/users/me/auctions_report",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/me/auctions_report",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"me",
+										"auctions_report"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/users/me/auctions_report",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/me/auctions_report",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"me",
+										"auctions_report"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/users/me/change_password",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"old_password\": \"\",\r\n    \"new_password\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users/me/change_password",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"me",
+										"change_password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/users/me/login_attempts?page={int}",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/me/login_attempts?page=",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"me",
+										"login_attempts"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/users/me/notifications",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/me/notifications",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"me",
+										"notifications"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/users/me/notifications",
+							"request": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"id_notification\": 0\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users/me/notifications",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"me",
+										"notifications"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/users/me/favourites",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/me/favourites",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"me",
+										"favourites"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/users/me/items?page={int}&search={string}&category={string}&order_by={lowest|highest|oldest|default:newest}&type={participated|ended|won|default:created}",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/me/items?page=&search=&category=&order_by=&type=",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"me",
+										"items"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": ""
+										},
+										{
+											"key": "search",
+											"value": ""
+										},
+										{
+											"key": "category",
+											"value": ""
+										},
+										{
+											"key": "order_by",
+											"value": ""
+										},
+										{
+											"key": "type",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/users/me/discussions?page={int}",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{base_url}}/users/me/discussions?page=",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"me",
+										"discussions"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": ""
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					],
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"type": "text/javascript",
+								"exec": [
+									""
+								]
+							}
+						}
+					]
+				},
+				{
+					"name": "reset_password",
+					"item": [
+						{
+							"name": "/users/reset_password",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"email\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users/reset_password",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"reset_password"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "/users/reset_password/confirm",
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"token\": \"\",\r\n    \"password\": \"\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{base_url}}/users/reset_password/confirm",
+									"host": [
+										"{{base_url}}"
+									],
+									"path": [
+										"users",
+										"reset_password",
+										"confirm"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "/users/register",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"\",\r\n    \"first_name\": \"\",\r\n    \"last_name\": \"\",\r\n    \"email\": \"\",\r\n    \"birth_date\": \"\",\r\n    \"password\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/register",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/activate",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/activate",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"activate"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.collectionVariables.set(\"jwt_token\", pm.response.json().token);\r",
+									"    pm.collectionVariables.set(\"jwt_refresh_token\", pm.response.json().refresh_token);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"\",\r\n    \"email\": \"\",\r\n    \"password\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/login",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/refreshtoken",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Verify status code is 200\", () => {\r",
+									"    pm.response.to.have.status(200);\r",
+									"    pm.collectionVariables.set(\"jwt_token\", pm.response.json().token);\r",
+									"    pm.collectionVariables.set(\"jwt_refresh_token\", pm.response.json().refresh_token);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"token\": \"{{jwt_refresh_token}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/users/refreshtoken",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"refreshtoken"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/users/{id}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/users/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"users",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "favourites",
+			"item": [
+				{
+					"name": "/favourites",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_item\": 0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/favourites",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"favourites"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/favourites/{id}",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/favourites/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"favourites",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "countries",
+			"item": [
+				{
+					"name": "/countries",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/countries",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"countries"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "provinces",
+			"item": [
+				{
+					"name": "/provinces",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/provinces",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"provinces"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "items",
+			"item": [
+				{
+					"name": "/items?page={int}&search={string}&category={string}&order_by={lowest|highest|oldest|default:newest}",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/items?page=&search=&category=&order_by=",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"items"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": ""
+								},
+								{
+									"key": "search",
+									"value": ""
+								},
+								{
+									"key": "category",
+									"value": ""
+								},
+								{
+									"key": "order_by",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/items/{id}",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/items/1",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"items",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/items",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"\",\r\n    \"description\": \"\",\r\n    \"id_category\": 0,\r\n    \"starting_price\": 0.0,\r\n    \"ending_time\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/items",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"items"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "itemsImages",
+			"item": [
+				{
+					"name": "/itemsImages",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_item",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "is_main",
+									"value": "True",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/itemsImages",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"itemsImages"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "bids",
+			"item": [
+				{
+					"name": "/bids",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_item\": 0,\r\n    \"bid_price\": 0.0\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/bids",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"bids"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "categories",
+			"item": [
+				{
+					"name": "/categories",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/categories",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"categories"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "discussions",
+			"item": [
+				{
+					"name": "/discussions",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_item\": 0,\r\n    \"content\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/discussions",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"discussions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/discussions/{id}?page={int}",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{base_url}}/discussions/1?page=",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"discussions",
+								"1"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": ""
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "messages",
+			"item": [
+				{
+					"name": "/messages",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id_discussion\": 0,\r\n    \"content\": \"\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{base_url}}/messages",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"messages"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "messagesImages",
+			"item": [
+				{
+					"name": "/messagesImages",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "id_message",
+									"value": "",
+									"type": "text"
+								},
+								{
+									"key": "image",
+									"type": "file",
+									"src": []
+								}
+							]
+						},
+						"url": {
+							"raw": "{{base_url}}/messagesImages",
+							"host": [
+								"{{base_url}}"
+							],
+							"path": [
+								"messagesImages"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "apikey",
+		"apikey": [
+			{
+				"key": "value",
+				"value": "JWT {{jwt_token}}",
+				"type": "string"
+			},
+			{
+				"key": "key",
+				"value": "Authorization",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "base_url",
+			"value": "https://projekty.fullweb.net.pl/auction-auction-api",
+			"type": "string"
+		},
+		{
+			"key": "jwt_token",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "jwt_refresh_token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

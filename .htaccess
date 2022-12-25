@@ -1,0 +1,7 @@
+Header set X-Robots-Tag "noindex, nofollow"
+RedirectMatch 403 ^/Auction-Auction-api/src/task(/|/.+)?$
+
+RewriteEngine on
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ /Auction-Auction-api/index.php?path=$1 [NC,L,QSA]
