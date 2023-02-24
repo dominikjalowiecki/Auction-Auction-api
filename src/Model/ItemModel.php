@@ -93,14 +93,9 @@ class ItemModel
                 i.name,
                 i.description,
                 i.id_creator,
-                (
-                    SELECT
-                        name
-                    FROM
-                        category
-                    WHERE
-                        id_category = i.id_category
-                ) as category,
+                u.username as creator_username,
+                u.avatar as creator_avatar,
+                c.name as category,
                 i.starting_price,
                 i.starting_time,
                 i.ending_price,
@@ -139,6 +134,10 @@ class ItemModel
                 category c
             USING
                 (id_category)
+            JOIN
+                user u
+            ON
+                i.id_creator = u.id_user
             LEFT JOIN
                 bid b
             USING
@@ -200,8 +199,16 @@ class ItemModel
         if ($stmt->execute($data)) {
             $this->data = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
-            for ($i = 0; $i < count($this->data); $i++)
+            $no_rows = count($this->data);
+            for ($i = 0; $i < $no_rows; $i++) {
                 $this->data[$i]["description"] = smartTruncate($this->data[$i]["description"], 75);
+
+                $this->data[$i]["creator"] = array(
+                    "id_user" => array_remove($this->data[$i], "id_creator"),
+                    "username" => array_remove($this->data[$i], "creator_username"),
+                    "avatar" => array_remove($this->data[$i], "creator_avatar")
+                );
+            }
 
             return self::FLAG_SUCCESS;
         } else {
@@ -266,14 +273,10 @@ class ItemModel
                 i.name,
                 i.description,
                 i.id_creator,
-                (
-                    SELECT
-                        name
-                    FROM
-                        category
-                    WHERE
-                        id_category = i.id_category
-                ) as category,
+                u.username as creator_username,
+                u.avatar as creator_avatar,
+		        u.last_online as creator_last_online,
+                c.name as category,
                 i.starting_price,
                 i.starting_time,
                 i.id_winner,
@@ -307,6 +310,14 @@ class ItemModel
                 ) images
             FROM
                 item i
+            JOIN
+                category c
+            USING
+                (id_category)
+            JOIN
+                user u
+            ON
+                i.id_creator = u.id_user
             LEFT JOIN
                 bid b
             USING
@@ -327,6 +338,13 @@ class ItemModel
             if ($stmt->rowCount()) {
                 $this->data = $stmt->fetch(\PDO::FETCH_ASSOC);
                 $this->data["images"] =  explode(',', $this->data["images"]);
+
+                $this->data["creator"] = array(
+                    "id_user" => array_remove($this->data, "id_creator"),
+                    "username" => array_remove($this->data, "creator_username"),
+                    "avatar" => array_remove($this->data, "creator_avatar"),
+                    "last_online" => array_remove($this->data, "creator_last_online")
+                );
 
                 return self::FLAG_SUCCESS;
             } else {

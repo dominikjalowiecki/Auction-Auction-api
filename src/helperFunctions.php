@@ -31,11 +31,12 @@ function smartTruncate($text, $length, $suffix = "...")
  * @param   mixed   $key Key of values from nested arrays to generate string from
  * @return  string  String of combined $key values
  */
-function nestedArraysKeyValuesToString($arr, $key)
+function nestedArraysKeyValuesToString(&$arr, $key)
 {
     $in_values = "";
     $i = 0;
-    for ($i; $i < count($arr) - 1; $i++)
+    $n = count($arr);
+    for ($i; $i < $n - 1; $i++)
         $in_values .= $arr[$i][$key] . ", ";
     $in_values .= $arr[$i][$key];
 
@@ -50,7 +51,7 @@ function nestedArraysKeyValuesToString($arr, $key)
  * @param   mixed   $value Searched value
  * @return  array   Array of results
  */
-function binarySearchGetArrays($arr, $key, $value)
+function binarySearchGetArrays(&$arr, $key, $value)
 {
     $arr_length = count($arr);
     $l = 0;
@@ -74,4 +75,19 @@ function binarySearchGetArrays($arr, $key, $value)
         $res[] = $el;
 
     return $res;
+}
+
+/**
+ * Removes an item from the array and returns its value.
+ *
+ * @param   array   $arr The input array
+ * @param   mixed   $key The key pointing to the desired value
+ * @return  mixed   The value mapped to $key or null if none
+ */
+function array_remove(&$arr, $key)
+{
+    $val = $arr[$key] ?? null;
+    unset($arr[$key]);
+
+    return $val;
 }
