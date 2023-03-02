@@ -57,7 +57,10 @@ function apiController($uri, $db_connection, $endpoint, $request_method)
     return $current_controller->processRequest();
 }
 
-header("Access-Control-Allow-Origin: " . CONFIG['BASE_FRONTEND_URL']);
+$cors = explode("/", CONFIG['BASE_FRONTEND_URL']);
+$cors = $cors[0] . "//" . $cors[2];
+
+header("Access-Control-Allow-Origin: " . $cors);
 header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
