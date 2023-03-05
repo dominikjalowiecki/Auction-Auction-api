@@ -73,7 +73,7 @@ class UserController extends Controller
                                 if (
                                     !(($token_data->data->token_flag ?? 0) & AuthenticationController::TOKEN_REFRESH) ||
                                     $token_data->iss != CONFIG['BASE_BACKEND_URL'] ||
-                                    $_SERVER['HTTP_REFERER'] != $token_data->aud
+                                    strpos($_SERVER['HTTP_REFERER'], $token_data->aud) !== 0
                                 )
                                     throw new \Exception("Invalid token");
 
@@ -214,7 +214,7 @@ class UserController extends Controller
                                 if (
                                     !(($token_data->data->token_flag ?? 0) & AuthenticationController::TOKEN_ACTIVATION) ||
                                     $token_data->iss != CONFIG['BASE_BACKEND_URL'] ||
-                                    $_SERVER['HTTP_REFERER'] != $token_data->aud
+                                    strpos($_SERVER['HTTP_REFERER'], $token_data->aud) !== 0
                                 )
                                     throw new \Exception("Invalid token");
 
@@ -762,7 +762,7 @@ class UserController extends Controller
                                         if (
                                             !(($token_data->data->token_flag ?? 0) & AuthenticationController::TOKEN_RESET_PASSWORD) ||
                                             $token_data->iss != CONFIG['BASE_BACKEND_URL'] ||
-                                            $_SERVER['HTTP_REFERER'] != $token_data->aud
+                                            strpos($_SERVER['HTTP_REFERER'], $token_data->aud) !== 0
                                         )
                                             throw new \Exception("Invalid token");
 
