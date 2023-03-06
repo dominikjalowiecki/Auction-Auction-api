@@ -41,6 +41,7 @@ class ItemController extends Controller
                                 array(
                                     'pages' => $this->model->pages,
                                     'current_page' => $this->model->pagination,
+                                    'items_count' => $this->model->items_count,
                                     'result' => $this->model->data
                                 )
                             );

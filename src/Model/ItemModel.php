@@ -18,6 +18,7 @@ class ItemModel
     public $ending_time;
     public $data;
     public $pagination = 1;
+    public $items_count;
     public $pages;
     public $order_by;
     public $category;
@@ -72,7 +73,8 @@ class ItemModel
         $stmt->execute($data);
         $row = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-        $this->pages = ceil($row['count'] / 10);
+        $this->items_count = $row['count']; 
+        $this->pages = ceil($this->items_count / 10);
 
         if ($this->pages == 0) {
             $this->pagination = 0;
