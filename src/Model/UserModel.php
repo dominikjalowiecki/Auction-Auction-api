@@ -17,6 +17,7 @@ class UserModel
     public $email;
     public $birth_date;
     public $password;
+    public $old_password;
     public $pswc;
     public $avatar;
     public $id_country;
@@ -24,6 +25,7 @@ class UserModel
     public $postcode;
     public $city;
     public $street;
+    public $phone;
     public $last_online;
     public $created_at;
     public $id_notification;
@@ -473,13 +475,13 @@ class UserModel
         $stmt->execute($data);
         $row = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-        $this->pages = ceil($row['count'] / 10);
+        $pagination = CONFIG['PAGINATION'];
+        $this->pages = ceil($row['count'] / $pagination);
 
         if ($this->pagination > $this->pages) {
             return self::FLAG_OVERFLOW;
         }
 
-        $pagination = CONFIG['PAGINATION'];
         $pagination_start = ($pagination * $this->pagination) - $pagination;
 
         # Getting details of current user login attempts
@@ -1025,7 +1027,8 @@ class UserModel
         $stmt->execute($data);
         $row = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-        $this->pages = ceil($row['count'] / 10);
+        $pagination = CONFIG['PAGINATION'];
+        $this->pages = ceil($row['count'] / $pagination);
 
         if ($this->pages == 0) {
             $this->pagination = 0;
@@ -1037,7 +1040,6 @@ class UserModel
         }
 
         # Getting details of all available items
-        $pagination = CONFIG['PAGINATION'];
         $pagination_start = ($pagination * $this->pagination) - $pagination;
 
         $query = "
@@ -1217,7 +1219,8 @@ class UserModel
         $stmt->execute($data);
         $row = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-        $this->pages = ceil($row['count'] / 10);
+        $pagination = CONFIG['PAGINATION'];
+        $this->pages = ceil($row['count'] / $pagination);
 
         if ($this->pages == 0) {
             $this->pagination = 0;
@@ -1229,7 +1232,6 @@ class UserModel
         }
 
         # Getting details of all available items
-        $pagination = CONFIG['PAGINATION'];
         $pagination_start = ($pagination * $this->pagination) - $pagination;
 
         $query = "

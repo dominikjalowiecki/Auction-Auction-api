@@ -195,14 +195,14 @@ class DiscussionModel
         $stmt->execute($data);
         $row = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-        $this->pages = ceil($row['count'] / 10);
+        $pagination = CONFIG['PAGINATION'];
+        $this->pages = ceil($row['count'] / $pagination);
 
         if ($this->pagination > $this->pages) {
             return self::FLAG_OVERFLOW;
         }
 
         # Getting details of all available items
-        $pagination = CONFIG['PAGINATION'];
         $pagination_start = ($pagination * $this->pagination) - $pagination;
 
         $query = "

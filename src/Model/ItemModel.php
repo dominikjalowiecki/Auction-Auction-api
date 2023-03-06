@@ -73,8 +73,10 @@ class ItemModel
         $stmt->execute($data);
         $row = $stmt->fetch(\PDO::FETCH_ASSOC);
 
-        $this->items_count = $row['count']; 
-        $this->pages = ceil($this->items_count / 10);
+        $this->items_count = $row['count'];
+        $pagination = CONFIG['PAGINATION'];
+        $this->pages = ceil($this->items_count / $pagination);
+
 
         if ($this->pages == 0) {
             $this->pagination = 0;
@@ -86,7 +88,6 @@ class ItemModel
         }
 
         # Getting details of all available items
-        $pagination = CONFIG['PAGINATION'];
         $pagination_start = ($pagination * $this->pagination) - $pagination;
 
         $query = "
