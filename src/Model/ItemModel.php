@@ -77,7 +77,6 @@ class ItemModel
         $pagination = CONFIG['PAGINATION'];
         $this->pages = ceil($this->items_count / $pagination);
 
-
         if ($this->pages == 0) {
             $this->pagination = 0;
             return self::FLAG_SUCCESS;
@@ -96,7 +95,7 @@ class ItemModel
                 i.name,
                 i.description,
                 i.id_creator,
-                u.username as creator_username,
+		u.username as creator_username,
                 u.avatar as creator_avatar,
                 c.name as category,
                 i.starting_price,
@@ -137,7 +136,7 @@ class ItemModel
                 category c
             USING
                 (id_category)
-            JOIN
+	    JOIN
                 user u
             ON
                 i.id_creator = u.id_user
@@ -276,9 +275,9 @@ class ItemModel
                 i.name,
                 i.description,
                 i.id_creator,
-                u.username as creator_username,
+		u.username as creator_username,
                 u.avatar as creator_avatar,
-		        u.last_online as creator_last_online,
+		u.last_online as creator_last_online,
                 c.name as category,
                 i.starting_price,
                 i.starting_time,
@@ -313,11 +312,11 @@ class ItemModel
                 ) images
             FROM
                 item i
-            JOIN
+	    JOIN
                 category c
             USING
                 (id_category)
-            JOIN
+	    JOIN
                 user u
             ON
                 i.id_creator = u.id_user
@@ -338,8 +337,8 @@ class ItemModel
         $stmt = $this->db_connection->prepare($query);
 
         if ($stmt->execute($data)) {
-            if ($stmt->rowCount()) {
-                $this->data = $stmt->fetch(\PDO::FETCH_ASSOC);
+            $this->data = $stmt->fetch(\PDO::FETCH_ASSOC);
+            if ($this->data['name'] != null) {
                 $this->data["images"] =  explode(',', $this->data["images"]);
 
                 $this->data["creator"] = array(

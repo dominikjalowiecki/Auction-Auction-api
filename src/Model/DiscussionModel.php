@@ -240,7 +240,7 @@ class DiscussionModel
         if ($stmt->execute($data)) {
             $this->data = $stmt->fetchAll(\PDO::FETCH_ASSOC);
 
-            $no_rows = count($this->data);
+	    $no_rows = count($this->data);
             for ($i = 0; $i < $no_rows; $i++)
                 $this->data[$i]["images"] = explode(',', $this->data[$i]["images"]);
 
