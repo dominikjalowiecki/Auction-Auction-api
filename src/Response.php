@@ -15,7 +15,7 @@ final class Response
 
         if (!empty($data)) {
             $res = $data;
-            echo json_encode($res);
+            echo json_encode($res, JSON_NUMERIC_CHECK);
         }
     }
 
@@ -31,7 +31,7 @@ final class Response
             $res = array_merge($res, $data);
         }
 
-        echo json_encode($res);
+        echo json_encode($res, JSON_NUMERIC_CHECK);
     }
 
     public static function noContent()

@@ -65,11 +65,6 @@ header("Content-Type: application/json; charset=UTF-8");
 header("Access-Control-Max-Age: 3600");
 header("Access-Control-Allow-Headers: Content-Type, Authorization, X-Requested-With");
 
-$delay = 60;
-$cache_time = gmdate("D, d M Y H:i:s", time() + $delay) . " GMT";
-header("Expires: $cache_time");
-header("Cache-Control: max-age=$cache_time");
-
 $uri = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 $uri = explode('/', $uri);
 
