@@ -106,13 +106,13 @@ foreach ($tasks as $task) {
         $mail->Port       = 587;
     }
 
-    $mail->setFrom(CONFIG['SMTP_USERNAME'], 'Serwis Auction Auction');
+    $mail->setFrom(CONFIG['SMTP_USERNAME'], 'Auction Auction service');
     $mail->addAddress($task['email'], $task['first_name'] . ' ' . $task['last_name']);
     $mail->addAttachment($fpath);
 
-    $mail->Subject = 'Raport aukcji konta w serwisie Auction Auction';
+    $mail->Subject = 'Auction Auction - Auctions report';
 
-    $mail->Body = 'Oto wyczekiwany raport.';
+    $mail->Body = 'Here is your requested auctions report.';
 
     $mail->send();
     unlink($fpath);

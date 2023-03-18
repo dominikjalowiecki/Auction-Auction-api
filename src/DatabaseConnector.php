@@ -12,7 +12,7 @@ final class DatabaseConnector
     {
     }
 
-    public static function getConnection()
+    public static function getConnection(): \PDO
     {
         if (self::$db_connection == null) {
             $dsn = "mysql:host=" . CONFIG['DB_HOST'] . ";port=" . CONFIG['DB_PORT'] . ";dbname=" . CONFIG['DB_NAME'] . ";charset=utf8mb4";

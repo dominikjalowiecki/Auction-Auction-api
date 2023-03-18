@@ -5,6 +5,7 @@ require_once(__DIR__ . '/vendor/autoload.php');
 
 use App\DatabaseConnector;
 use App\Controller\{
+    Controller,
     UserController,
     CountryController,
     ProvinceController,
@@ -19,7 +20,7 @@ use App\Controller\{
 };
 use App\Response;
 
-function controllerFactory($path, $db_connection, $endpoint, $request_method)
+function controllerFactory($path, $db_connection, $endpoint, $request_method): ?Controller
 {
     switch ($path) {
         case 'users':
@@ -53,8 +54,9 @@ function controllerFactory($path, $db_connection, $endpoint, $request_method)
 function apiController($uri, $db_connection, $endpoint, $request_method)
 {
     $current_controller = controllerFactory($uri[2], $db_connection, $endpoint, $request_method);
-    if ($current_controller == null) return;
-    return $current_controller->processRequest();
+    if ($current_controller === null) return;
+
+    $current_controller->processRequest();
 }
 
 $cors = explode("/", CONFIG['BASE_FRONTEND_URL']);

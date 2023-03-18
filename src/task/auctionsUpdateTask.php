@@ -67,7 +67,7 @@ if ($in_values !== "") {
     INSERT INTO notification
         (id_recipient, title_html, body_html, id_item, created_at)
     SELECT DISTINCT
-        b.id_bidder, 'Aukcja zakończona!', 'Aukcja zakończona!', b.id_item, UTC_TIMESTAMP
+        b.id_bidder, 'Auction you participated have finished!', 'Check results in auctions panel.', b.id_item, UTC_TIMESTAMP
     FROM
         bid b
     WHERE
@@ -92,7 +92,7 @@ if ($in_values !== "") {
     INSERT INTO notification
         (id_recipient, title_html, body_html, id_item, created_at)
     SELECT
-        i.id_creator, 'Twoja aukcja się zakończyła!', 'Sprawdź rezultat w panelu.', i.id_item, UTC_TIMESTAMP
+        i.id_creator, 'Your auction have finished!', 'Check results in auctions panel.', i.id_item, UTC_TIMESTAMP
     FROM
         item i
     WHERE
@@ -105,7 +105,7 @@ if ($in_values !== "") {
     INSERT INTO notification
         (id_recipient, title_html, body_html, id_item, created_at)
     SELECT
-        b.id_bidder, 'Wygrałeś aukcję!', 'Wygrałeś aukcję!', b.id_item, UTC_TIMESTAMP
+        b.id_bidder, 'You have won auction!', 'Check details in auctions panel.', b.id_item, UTC_TIMESTAMP
     FROM
         bid b
     WHERE

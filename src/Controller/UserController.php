@@ -153,13 +153,13 @@ class UserController extends Controller
                                         $mail->Port       = 587;
                                     }
 
-                                    $mail->setFrom(CONFIG['SMTP_USERNAME'], 'Serwis Auction Auction');
+                                    $mail->setFrom(CONFIG['SMTP_USERNAME'], 'Auction Auction service');
 
                                     $mail->addAddress($this->model->email, $this->model->first_name . ' ' . $this->model->last_name);
 
-                                    $mail->Subject = 'Aktywacja konta w serwisie Auction Auction';
+                                    $mail->Subject = 'Auction Auction - Account activation';
 
-                                    $mail->Body = 'Oto link aktywacyjny: ' . CONFIG['BASE_FRONTEND_URL'] . '/activate/' . $this->model->token;
+                                    $mail->Body = 'Link for activating your profile: ' . CONFIG['BASE_FRONTEND_URL'] . '/activate/' . $this->model->token;
 
                                     $mail->send();
                                     return Response::created();
@@ -704,13 +704,13 @@ class UserController extends Controller
                                                 $mail->Port       = 587;
                                             }
 
-                                            $mail->setFrom(CONFIG['SMTP_USERNAME'], 'Serwis Auction Auction');
+                                            $mail->setFrom(CONFIG['SMTP_USERNAME'], 'Auction Auction service');
 
                                             $mail->addAddress($this->model->email, $this->model->first_name . ' ' . $this->model->last_name);
 
-                                            $mail->Subject = 'Reset hasla dla konta w serwisie Auction Auction';
+                                            $mail->Subject = 'Auction Auction - Reset password';
 
-                                            $mail->Body = 'Oto link do resetu hasla: ' . CONFIG['BASE_FRONTEND_URL'] . '/reset-password-confirm/' . $this->model->token;
+                                            $mail->Body = 'Link for resetting your password: ' . CONFIG['BASE_FRONTEND_URL'] . '/reset-password-confirm/' . $this->model->token;
 
                                             $mail->send();
                                             return Response::ok();
