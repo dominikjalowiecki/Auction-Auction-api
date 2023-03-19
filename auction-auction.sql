@@ -46,6 +46,16 @@ CREATE TABLE `category` (
   `name` varchar(30) COLLATE utf8mb4_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
+--
+-- Zrzut danych tabeli `category`
+--
+INSERT INTO `category` (`id_category`, `name`) VALUES
+(1, 'Electronics'),
+(2, 'Fashion'),
+(3, 'House and garden'),
+(4, 'Sport'),
+(5, 'Vehicles');
+
 -- --------------------------------------------------------
 
 --
@@ -56,6 +66,12 @@ CREATE TABLE `country` (
   `id_country` int(11) NOT NULL,
   `name` varchar(50) COLLATE utf8mb4_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
+
+--
+-- Zrzut danych tabeli `country`
+--
+INSERT INTO `country` (`id_country`, `name`) VALUES
+(1, 'Poland');
 
 -- --------------------------------------------------------
 
@@ -196,6 +212,16 @@ CREATE TABLE `province` (
   `name` varchar(30) COLLATE utf8mb4_bin NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_bin;
 
+--
+-- Zrzut danych tabeli `province`
+--
+INSERT INTO `province` (`id_province`, `name`) VALUES
+(1, 'Silesia'),
+(2, 'Opole'),
+(3, 'Lesser Poland'),
+(4, 'Masovia'),
+(5, 'Pomeranian');
+
 -- --------------------------------------------------------
 
 --
@@ -206,6 +232,12 @@ CREATE TABLE `role` (
   `id_role` int(11) NOT NULL,
   `name` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+	
+--
+-- Zrzut danych tabeli `role`
+--
+INSERT INTO `role` (`id_role`, `name`) VALUES
+(1, 'User');
 
 -- --------------------------------------------------------
 
@@ -394,13 +426,13 @@ ALTER TABLE `bid`
 -- AUTO_INCREMENT dla tabeli `category`
 --
 ALTER TABLE `category`
-  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_category` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT dla tabeli `country`
 --
 ALTER TABLE `country`
-  MODIFY `id_country` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_country` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT dla tabeli `discussion`
@@ -460,13 +492,13 @@ ALTER TABLE `notification`
 -- AUTO_INCREMENT dla tabeli `province`
 --
 ALTER TABLE `province`
-  MODIFY `id_province` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_province` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT dla tabeli `role`
 --
 ALTER TABLE `role`
-  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_role` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT dla tabeli `task`
