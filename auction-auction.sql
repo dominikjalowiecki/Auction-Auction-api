@@ -116,7 +116,7 @@ CREATE TABLE `image` (
 
 CREATE TABLE `item` (
   `id_item` int(11) NOT NULL,
-  `name` varchar(100) COLLATE utf8mb4_bin NOT NULL,
+  `name` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
   `description` varchar(500) COLLATE utf8mb4_bin NOT NULL,
   `id_creator` int(11) NOT NULL,
   `id_category` int(11) NOT NULL,

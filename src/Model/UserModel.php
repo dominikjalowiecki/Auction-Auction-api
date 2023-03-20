@@ -38,6 +38,7 @@ class UserModel
     public $type;
     public $token;
     public $refresh_token;
+    public $items_count;
 
     public const FLAG_SUCCESS = 0x1;
     public const FLAG_FAILURE = 0x2;
@@ -1027,8 +1028,9 @@ class UserModel
         $stmt->execute($data);
         $row = $stmt->fetch(\PDO::FETCH_ASSOC);
 
+        $this->items_count = $row['count'];
         $pagination = CONFIG['PAGINATION'];
-        $this->pages = ceil($row['count'] / $pagination);
+        $this->pages = ceil($this->items_count / $pagination);
 
         if ($this->pages == 0) {
             $this->pagination = 0;
