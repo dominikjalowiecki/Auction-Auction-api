@@ -4,6 +4,7 @@ namespace App\Model;
 
 require_once(__DIR__ . '/../config.php');
 require_once(__DIR__ . '/../getIpAddress.php');
+require_once(__DIR__ . '/../helperFunctions.php');
 
 class UserModel
 {
@@ -1239,6 +1240,24 @@ class UserModel
         $query = "
             SELECT
                 d.*,
+                ud.username,
+                it.name item_name,
+                (
+                    SELECT
+                		im.image_url image
+                    FROM
+                    	image im
+                    JOIN
+                    	item_image ii
+                    USING
+                    	(id_image)
+                    WHERE
+                    	ii.id_item = it.id_item AND
+                    	ii.is_main = True
+                    LIMIT
+                    	1
+                ) item_image,
+                uit.username item_creator_username,
                 m.id_sender,
                 m.content,
                 m.created_at,
@@ -1253,6 +1272,18 @@ class UserModel
                 message m
             USING
                 (id_discussion)
+            JOIN
+                item it
+            USING
+                (id_item)
+            JOIN
+                user uit
+            ON
+                it.id_creator = uit.id_user
+            JOIN
+                user ud
+            ON
+                d.id_user = ud.id_user
             WHERE
                 (d.id_user = :id_user OR
                 i.id_creator = :id_user) AND
@@ -1280,6 +1311,21 @@ class UserModel
 
         if ($stmt->execute($data)) {
             $this->data = $stmt->fetchAll(\PDO::FETCH_ASSOC);
+
+            $no_rows = count($this->data);
+            for ($i = 0; $i < $no_rows; $i++) {
+                $this->data[$i]["discussion_creator"] = array(
+                    "id_user" => array_remove($this->data[$i], "id_user"),
+                    "username" => array_remove($this->data[$i], "username")
+                );
+
+                $this->data[$i]["item"] = array(
+                    "id_item" => array_remove($this->data[$i], "id_item"),
+                    "name" => array_remove($this->data[$i], "item_name"),
+                    "creator_username" => array_remove($this->data[$i], "item_creator_username"),
+                    "image" => array_remove($this->data[$i], "item_image")
+                );
+            }
 
             return self::FLAG_SUCCESS;
         } else {
