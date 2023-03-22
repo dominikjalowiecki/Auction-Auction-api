@@ -300,7 +300,7 @@ class ItemModel
                 ) id_bidder,
                 (
                     SELECT
-                		GROUP_CONCAT(im.image_url)
+                		GROUP_CONCAT(im.image_url ORDER BY ii.is_main DESC)
                     FROM
                     	image im
                     JOIN
