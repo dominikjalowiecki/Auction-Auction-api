@@ -213,7 +213,7 @@ class DiscussionModel
                 m.is_read,
                 (
                     SELECT
-                		GROUP_CONCAT(im.image_url)
+                		im.image_url
                     FROM
                     	image im
                     JOIN
@@ -222,7 +222,7 @@ class DiscussionModel
                     	(id_image)
                     WHERE
                     	mi.id_message = m.id_message
-                ) images
+                ) image
             FROM
                 message m
             WHERE
@@ -239,10 +239,6 @@ class DiscussionModel
 
         if ($stmt->execute($data)) {
             $this->data = $stmt->fetchAll(\PDO::FETCH_ASSOC);
-
-            $no_rows = count($this->data);
-            for ($i = 0; $i < $no_rows; $i++)
-                $this->data[$i]["images"] = explode(',', $this->data[$i]["images"]);
 
             $query = "
                 UPDATE
