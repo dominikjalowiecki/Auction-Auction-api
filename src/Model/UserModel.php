@@ -477,8 +477,9 @@ class UserModel
         $stmt->execute($data);
         $row = $stmt->fetch(\PDO::FETCH_ASSOC);
 
+        $this->items_count = $row['count'];
         $pagination = CONFIG['PAGINATION'];
-        $this->pages = ceil($row['count'] / $pagination);
+        $this->pages = ceil($this->items_count / $pagination);
 
         if ($this->pagination > $this->pages) {
             return self::FLAG_OVERFLOW;
