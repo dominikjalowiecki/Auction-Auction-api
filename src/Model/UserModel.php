@@ -478,7 +478,7 @@ class UserModel
         $row = $stmt->fetch(\PDO::FETCH_ASSOC);
 
         $this->items_count = $row['count'];
-        $pagination = CONFIG['PAGINATION'];
+        $pagination = CONFIG['LOGIN_ATTEMPTS_PAGINATION'];
         $this->pages = ceil($this->items_count / $pagination);
 
         if ($this->pagination > $this->pages) {

@@ -20,5 +20,6 @@ define('CONFIG', array(
     'SMTP_USERNAME' => '',
     'SMTP_PASSWORD' => '',
     'PAGINATION' => 10,
-    'MESSAGES_PAGINATION' => 10
+    'MESSAGES_PAGINATION' => 10,
+    'LOGIN_ATTEMPTS_PAGINATION' => 10
 ));
