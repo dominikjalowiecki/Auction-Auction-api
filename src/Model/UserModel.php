@@ -1242,6 +1242,8 @@ class UserModel
             SELECT
                 d.*,
                 ud.username,
+                ud.avatar,
+                ud.last_online,
                 it.name item_name,
                 (
                     SELECT
@@ -1258,7 +1260,10 @@ class UserModel
                     LIMIT
                     	1
                 ) item_image,
+                uit.id_user item_creator_id,
                 uit.username item_creator_username,
+                uit.avatar item_creator_avatar,
+                uit.last_online item_creator_last_online,
                 m.id_sender,
                 m.content,
                 m.created_at,
@@ -1317,14 +1322,19 @@ class UserModel
             for ($i = 0; $i < $no_rows; $i++) {
                 $this->data[$i]["discussion_creator"] = array(
                     "id_user" => array_remove($this->data[$i], "id_user"),
-                    "username" => array_remove($this->data[$i], "username")
+                    "username" => array_remove($this->data[$i], "username"),
+                    "avatar" => array_remove($this->data[$i], "avatar"),
+                    "last_online" => array_remove($this->data[$i], "last_online")
                 );
 
                 $this->data[$i]["item"] = array(
                     "id_item" => array_remove($this->data[$i], "id_item"),
                     "name" => array_remove($this->data[$i], "item_name"),
+                    "image" => array_remove($this->data[$i], "item_image"),
+                    "id_creator" => array_remove($this->data[$i], "item_creator_id"),
                     "creator_username" => array_remove($this->data[$i], "item_creator_username"),
-                    "image" => array_remove($this->data[$i], "item_image")
+                    "creator_avatar" => array_remove($this->data[$i], "item_creator_avatar"),
+                    "creator_last_online" => array_remove($this->data[$i], "item_creator_last_online")
                 );
             }
 

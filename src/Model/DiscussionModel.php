@@ -11,7 +11,6 @@ class DiscussionModel
     public $id_message;
     public $id_discussion;
     public $id_item;
-    public $id_creator;
     public $id_user;
     public $content;
 
@@ -141,7 +140,6 @@ class DiscussionModel
     {
         $query = "
             SELECT
-                d.id_item,
                 d.id_user,
                 i.id_creator
             FROM
@@ -168,8 +166,6 @@ class DiscussionModel
                 ) {
                     return self::FLAG_USER_NOT_ALLOWED;
                 }
-                $this->id_creator = $row['id_creator'];
-                $this->id_item = $row['id_item'];
             } else {
                 return self::FLAG_DISCUSSION_DOESNT_EXIST;
             }
@@ -210,7 +206,6 @@ class DiscussionModel
                 m.id_sender,
                 m.content,
                 m.created_at,
-                m.is_read,
                 (
                     SELECT
                 		im.image_url

@@ -97,9 +97,6 @@ class DiscussionController extends Controller
                                 if ($status & $this->model::FLAG_SUCCESS) {
                                     return Response::ok(
                                         array(
-                                            'id_item' => $this->model->id_item,
-                                            'id_creator' => $this->model->id_creator,
-                                            'id_user' => $this->model->id_user,
                                             'pages' => $this->model->pages,
                                             'current_page' => $this->model->pagination,
                                             'result' => $this->model->data
