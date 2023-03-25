@@ -44,7 +44,8 @@ class DiscussionController extends Controller
                                 if ($status & $this->model::FLAG_SUCCESS) {
                                     return Response::created(
                                         array(
-                                            "id_message" => $this->model->id_message
+                                            "id_message" => $this->model->id_message,
+                                            "id_discussion" => $this->model->id_discussion
                                         )
                                     );
                                 } elseif ($status & $this->model::FLAG_ITEM_DOESNT_EXIST) {
