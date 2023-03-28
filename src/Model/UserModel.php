@@ -1306,7 +1306,7 @@ class UserModel
                         1   
                 )
             ORDER BY
-            m.created_at ASC
+                m.created_at DESC
             LIMIT
                 $pagination
             OFFSET
