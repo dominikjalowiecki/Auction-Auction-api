@@ -39,7 +39,11 @@ class FavouriteController extends Controller
                             ) {
                                 $status = $this->model->addFavourite();
                                 if ($status & $this->model::FLAG_SUCCESS) {
-                                    return Response::created();
+                                    return Response::created(
+                                        array(
+                                            "id_favourite" => $this->model->id_favourite
+                                        )
+                                    );
                                 } elseif ($status & $this->model::FLAG_ITEM_DOESNT_EXIST) {
                                     return Response::unprocessableEntity(
                                         array(

@@ -77,6 +77,7 @@ class FavouriteModel
 
         if ($stmt->execute($data)) {
             if ($stmt->rowCount() > 0) {
+                $this->id_favourite = $this->db_connection->lastInsertId();
                 return self::FLAG_SUCCESS;
             } else {
                 return self::FLAG_ALREADY_FAVOURITE;
