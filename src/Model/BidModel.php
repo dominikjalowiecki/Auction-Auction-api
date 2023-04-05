@@ -123,8 +123,8 @@ class BidModel
 
                     $data = array(
                         "id_recipient" => $row['id_bidder'],
-                        "title_html" => "Zostałeś przebity!",
-                        "body_html" => "Zostałeś przebity!",
+                        "title_html" => "Your offer has been outbidded.",
+                        "body_html" => "Someone has outbidded your offer.",
                         "id_item" => $this->id_item
                     );
 

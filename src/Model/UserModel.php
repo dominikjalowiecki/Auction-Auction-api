@@ -266,8 +266,8 @@ class UserModel
 
             $data = array(
                 "id_recipient" => $this->id_user,
-                "title_html" => "Zaktualizuj swoje dane!",
-                "body_html" => "Zaktualizuj swoje dane!",
+                "title_html" => "Update your informations.",
+                "body_html" => "Go to your profile to update contact informations.",
                 "href" => "link"
             );
 
