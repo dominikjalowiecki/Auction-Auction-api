@@ -1,4 +1,5 @@
 [![Preview project](https://img.shields.io/static/v1?label=PHP&message=Preview&color=informational&style=flat&logo=php)][preview]
+[![Preview project](https://img.shields.io/static/v1?label=Angular&message=Preview&color=critical&style=flat&logo=angular)][frontend_preview]
 
 # Auction-Aucion-api
 
@@ -7,7 +8,12 @@ REST API of online auctions application "Auction Auction". [Click here to previe
 [Link to Figma frontend prototype.][figma_prototype]
 
 [preview]: https://projekty.fullweb.net.pl/auction-auction-api
+[frontend_preview]: https://projekty.fullweb.net.pl/auction-auction
 [figma_prototype]: https://www.figma.com/proto/ehLDQSnWFPYfzypYKI0fDk/Online-Auctions?scaling=min-zoom&page-id=0%3A1&starting-point-node-id=57%3A219&node-id=57%3A219
+
+[Frontend implementation preview.][frontend_preview]
+
+[Frontend implementation repository.](https://github.com/j-fudali/auction-auction)
 
 ### Notes
 

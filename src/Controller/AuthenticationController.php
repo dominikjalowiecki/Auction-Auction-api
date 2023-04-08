@@ -55,7 +55,7 @@ class AuthenticationController
             if (
                 !(($token_data->data->token_flag ?? 0) & self::TOKEN_LOGIN) ||
                 $token_data->iss != CONFIG['BASE_BACKEND_URL'] ||
-                isset($_SERVER['HTTP_REFERER'] && strpos($_SERVER['HTTP_REFERER'], $token_data->aud) !== 0
+                isset($_SERVER['HTTP_REFERER']) && strpos($_SERVER['HTTP_REFERER'], $token_data->aud) !== 0
             )
                 throw new \Exception("Invalid token");
 
