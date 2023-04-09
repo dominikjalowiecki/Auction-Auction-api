@@ -53,7 +53,7 @@ class ItemImageController extends Controller
                                 (isset($_FILES['image']['error']) ||
                                     !is_array($_FILES['image']['error'])) &&
                                 $_FILES['image']['error'] === UPLOAD_ERR_OK &&
-                                $_FILES['image']['size'] <= $max_dir_size
+                                $_FILES['image']['size'] <= $max_image_size
                             ) {
                                 if ($this->model->checkIfLessThanFour() & $this->model::FLAG_FAILURE) {
                                     return Response::serviceUnavailable();
