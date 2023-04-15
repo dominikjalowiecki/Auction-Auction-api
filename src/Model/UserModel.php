@@ -293,14 +293,12 @@ class UserModel
             FROM
                 user
             WHERE
-                username = :username OR
                 email = :email
             LIMIT
                 0,1;
         ";
 
         $data = array(
-            'username' => $this->username,
             'email' => $this->email,
         );
 
@@ -345,8 +343,6 @@ class UserModel
                     # Checking if given password is valid
                     $this->id_user = $row['id_user'];
                     if ($is_valid) {
-                        $this->username = $row['username'];
-                        $this->email = $row['email'];
                         $this->pswc = $row['pswc'];
 
                         $query = "
@@ -776,7 +772,6 @@ class UserModel
                 username,
                 first_name,
                 last_name,
-                email,
                 phone,
                 avatar,
                 (

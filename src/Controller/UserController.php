@@ -257,11 +257,7 @@ class UserController extends Controller
                         if (
                             !is_null($data)
                             &&
-                            (
-                                (
-                                    (!empty($this->model->username = trim($data->username ?? null)) && strlen($this->model->username) <= 30) ||
-                                    (!empty($this->model->email = trim($data->email ?? null)) && strlen($this->model->email) <= 50 && filter_var($this->model->email, FILTER_VALIDATE_EMAIL))
-                                ) &&
+                            (!empty($this->model->email = trim($data->email ?? null)) && strlen($this->model->email) <= 50 && filter_var($this->model->email, FILTER_VALIDATE_EMAIL) &&
                                 !empty($this->model->password = trim($data->password ?? null))
                             )
                             &&
