@@ -1154,7 +1154,7 @@ class UserModel
                         max_bid ASC, starting_price ASC
                 ";
                 break;
-            case 'higest':
+            case 'highest':
                 $query .= "
                     ORDER BY
                         max_bid DESC, starting_price DESC

@@ -167,7 +167,7 @@ class ItemModel
 						starting_price ASC
                 ";
                 break;
-            case 'higest':
+            case 'highest':
                 $query .= "
                     ORDER BY
                         max_bid DESC,
