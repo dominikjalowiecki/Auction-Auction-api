@@ -37,7 +37,7 @@ class ItemModel
 
     public function getItems()
     {
-        $is_search = $this->search !== "";
+        $is_search = $this->search !== "" && $this->search !== '*';
 
         # Getting row count
         $query = "
